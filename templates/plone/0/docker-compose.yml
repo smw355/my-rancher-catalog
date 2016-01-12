@@ -1,0 +1,25 @@
+app1:
+  ports:
+  - 80:80/tcp
+  environment:
+    BUILDOUT_ZEO_ADDRESS: zeo:8100
+    BUILDOUT_ZEO_CLIENT: 'True'
+  tty: true
+  image: eeacms/plone
+  links:
+  - 'zeo:'
+  stdin_open: true
+loadbalancer:
+  ports:
+  - 8080:80
+  tty: true
+  image: rancher/load-balancer-service
+  links:
+  - app1:app1
+  stdin_open: true
+zeo:
+  ports:
+  - 8100:8100/tcp
+  tty: true
+  image: eeacms/zeoserver
+  stdin_open: true
