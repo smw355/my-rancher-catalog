@@ -1,0 +1,18 @@
+app1:
+  scale: 2
+  health_check:
+    port: 80
+    interval: 2000
+    unhealthy_threshold: 3
+    response_timeout: 2000
+    healthy_threshold: 2
+loadbalancer:
+  scale: 1
+zeo:
+  scale: 1
+  health_check:
+    port: 8100
+    interval: 2000
+    unhealthy_threshold: 3
+    response_timeout: 2000
+    healthy_threshold: 2
