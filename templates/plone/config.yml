@@ -1,0 +1,5 @@
+ name: Plone # Name of the Catalog Entry 
+ description: Plone is a free and open source content management system
+    # Description of the Catalog Entry
+ version: # 1.0
+ category: # Content Management
