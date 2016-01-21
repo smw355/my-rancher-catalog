@@ -1,5 +1,5 @@
 app1:
-   environment:
+  environment:
     BUILDOUT_ZEO_ADDRESS: zeo:8100
     BUILDOUT_ZEO_CLIENT: 'True'
   tty: true
