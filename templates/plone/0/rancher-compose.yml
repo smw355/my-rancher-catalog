@@ -1,4 +1,4 @@
-.catalog
+.catalog:
   name: Plone # Name of the versioned template of the Catalog Entry 
   version: 1.0 # Version of the versioned template of the Catalog Entry 
   description: Plone is a free and open source content management system # Description of the versioned template of the Catalog Entry
