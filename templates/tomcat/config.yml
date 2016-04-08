@@ -1,0 +1,5 @@
+name: My Tomcat Application
+description: |
+  Tomcat. Redis. MySQL
+version: 0.1
+category: Web
