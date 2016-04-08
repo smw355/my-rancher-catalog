@@ -1,3 +1,7 @@
+.catalog:
+  name: "My Tomcat application"
+  version: "0.1"
+  description: "LB. Tomcat. Redis. MySQL"
 Redis:
   tty: true
   image: redis
