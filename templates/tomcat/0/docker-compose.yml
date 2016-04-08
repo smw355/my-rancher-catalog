@@ -5,16 +5,12 @@ Redis:
 Tomcatv13:
   labels:
     io.rancher.scheduler.global: 'true'
-    io.rancher.scheduler.affinity:host_label: az=dosf1
   tty: true
   image: tomcat:latest
   links:
   - Redis:Redis
-  - rds:rds
   - mysql:mysql
   stdin_open: true
-rds:
-  image: rancher/external-service
 MyAppLB:
   ports:
   - 80:2368
@@ -26,8 +22,6 @@ MyAppLB:
 mysql:
   environment:
     MYSQL_ROOT_PASSWORD: mypassword
-  labels:
-    io.rancher.scheduler.affinity:host_label: az=dosf1
   tty: true
   image: mysql:latest
   stdin_open: true
