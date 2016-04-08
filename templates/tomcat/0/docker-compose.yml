@@ -13,7 +13,7 @@ Tomcatv13:
   stdin_open: true
 MyAppLB:
   ports:
-  - 80:2368
+  - 81:2368
   tty: true
   image: rancher/load-balancer-service
   links:
