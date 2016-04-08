@@ -3,35 +3,17 @@
   version: "0.1"
   description: "LB. Tomcat. Redis. MySQL"
 Redis:
-  tty: true
-  image: redis
-  stdin_open: true
-Tomcatv13:
-  labels:
-    io.rancher.scheduler.global: 'true'
-    io.rancher.scheduler.affinity:host_label: az=dosf1
-  tty: true
-  image: tomcat:latest
-  links:
-  - Redis:Redis
-  - rds:rds
-  - mysql:mysql
-  stdin_open: true
-rds:
-  image: rancher/external-service
+  scale: 2
 MyAppLB:
-  ports:
-  - 80:2368
-  tty: true
-  image: rancher/load-balancer-service
-  links:
-  - Tomcatv13:Tomcatv13
-  stdin_open: true
+  scale: 1
+  load_balancer_config:
+    haproxy_config: {}
+  health_check:
+    port: 42
+    interval: 2000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    healthy_threshold: 2
 mysql:
-  environment:
-    MYSQL_ROOT_PASSWORD: mypassword
-  labels:
-    io.rancher.scheduler.affinity:host_label: az=dosf1
-  tty: true
-  image: mysql:latest
-  stdin_open: true
+  scale: 1
